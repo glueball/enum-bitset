@@ -1,0 +1,31 @@
+[workspace]
+members = ["enum-bitset-derive"]
+
+
+[package]
+name = "enum-bitset"
+version = "0.1.0"
+authors = ["glueball <glueball@gmail.com>"]
+description = "Generate efficient bitsets out of your enum types"
+keywords = ["bitset", "bit-set", "procmacro"]
+edition = "2024"
+homepage = "https://github.com/glueball/enum-bitset"
+repository = "https://github.com/glueball/enum-bitset"
+documentation = "https://docs.rs/enum_bitset"
+
+
+[dependencies]
+enum-bitset-derive = { path = "enum-bitset-derive", version = "0.1.0" }
+serde = { version = "^1", default-features = false, optional = true }
+
+
+[features]
+serde = ["dep:serde", "enum-bitset-derive/serde"]
+
+
+[dev-dependencies]
+assert2 = "0.3.15"
+serde = { version = "1.0.219", default-features = false, features = ["derive"] }
+serde_json = "1.0.140"
+strum = { version = "0.27.1", features = ["derive"] }
+

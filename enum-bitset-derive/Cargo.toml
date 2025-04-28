@@ -1,0 +1,31 @@
+[package]
+name = "enum-bitset-derive"
+version = "0.1.0"
+authors = ["glueball <glueball@gmail.com>"]
+description = "Proc macros for the enum-bitset macro"
+keywords = ["bitset", "bit-set", "procmacro"]
+edition = "2024"
+license = "MIT"
+homepage = "https://github.com/glueball/enum-bitset"
+repository = "https://github.com/glueball/enum-bitset"
+documentation = "https://docs.rs/enum_bitset"
+
+
+[lib]
+proc-macro = true
+
+
+[dependencies]
+heck = "0.5.0"
+proc-macro2 = "1.0.95"
+quote = "1.0.40"
+syn = { version = "2.0.101", default-features = false, features = ["parsing", "derive", "proc-macro", "printing", "clone-impls"] }
+
+
+[features]
+serde = []
+
+
+[dev-dependencies]
+syn = { version = "2.0.101", default-features = false, features = ["extra-traits"] }
+

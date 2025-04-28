@@ -1,0 +1,10 @@
+# WARNING: Some settings require nightly fmt.
+# Execute with:
+#     cargo +nighthly fmt
+blank_lines_lower_bound = 0
+blank_lines_upper_bound = 3
+chain_width = 50
+group_imports = "StdExternalCrate"
+hex_literal_case = "Lower"
+imports_granularity = "Crate"
+newline_style = "Unix"
