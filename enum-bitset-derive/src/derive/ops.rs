@@ -20,6 +20,7 @@ impl EnumBitsetConfig {
         quote! {
             use ::core::ops::*;
 
+            #[allow(clippy::suspicious_arithmetic_impl)]
             impl Add<#name> for #name {
                 type Output = Self;
 
@@ -28,6 +29,7 @@ impl EnumBitsetConfig {
                 }
             }
 
+            #[allow(clippy::suspicious_arithmetic_impl)]
             impl Add<&#name> for #name {
                 type Output = Self;
 
@@ -36,6 +38,7 @@ impl EnumBitsetConfig {
                 }
             }
 
+            #[allow(clippy::suspicious_arithmetic_impl)]
             impl Add<#base_ty> for #name {
                 type Output = Self;
 
@@ -44,6 +47,7 @@ impl EnumBitsetConfig {
                 }
             }
 
+            #[allow(clippy::suspicious_arithmetic_impl)]
             impl Add<&#base_ty> for #name {
                 type Output = Self;
 
@@ -52,24 +56,28 @@ impl EnumBitsetConfig {
                 }
             }
 
+            #[allow(clippy::suspicious_op_assign_impl)]
             impl AddAssign<#name> for #name {
                 fn add_assign(&mut self, rhs: Self) {
                     self.items |= rhs.items;
                 }
             }
 
+            #[allow(clippy::suspicious_op_assign_impl)]
             impl AddAssign<&#name> for #name {
                 fn add_assign(&mut self, rhs: &Self) {
                     self.items |= rhs.items;
                 }
             }
 
+            #[allow(clippy::suspicious_op_assign_impl)]
             impl AddAssign<#base_ty> for #name {
                 fn add_assign(&mut self, rhs: #base_ty) {
                     self.items |= base_to_value(&rhs);
                 }
             }
 
+            #[allow(clippy::suspicious_op_assign_impl)]
             impl AddAssign<&#base_ty> for #name {
                 fn add_assign(&mut self, rhs: &#base_ty) {
                     self.items |= base_to_value(rhs);
@@ -263,6 +271,7 @@ impl EnumBitsetConfig {
             impl Add<#base_ty> for #base_ty {
                 type Output = #name;
 
+                #[allow(clippy::suspicious_arithmetic_impl)]
                 fn add(self, rhs: #base_ty) -> #name {
                     #name { items: base_to_value(&self) | base_to_value(&rhs) }
                 }
@@ -271,6 +280,7 @@ impl EnumBitsetConfig {
             impl Add<&#base_ty> for #base_ty {
                 type Output = #name;
 
+                #[allow(clippy::suspicious_arithmetic_impl)]
                 fn add(self, rhs: &#base_ty) -> #name {
                     #name { items: base_to_value(&self) | base_to_value(rhs) }
                 }
@@ -279,6 +289,7 @@ impl EnumBitsetConfig {
             impl Add<&#base_ty> for &#base_ty {
                 type Output = #name;
 
+                #[allow(clippy::suspicious_arithmetic_impl)]
                 fn add(self, rhs: &#base_ty) -> #name {
                     #name { items: base_to_value(self) | base_to_value(rhs) }
                 }
@@ -287,6 +298,7 @@ impl EnumBitsetConfig {
             impl Add<#base_ty> for &#base_ty {
                 type Output = #name;
 
+                #[allow(clippy::suspicious_arithmetic_impl)]
                 fn add(self, rhs: #base_ty) -> #name {
                     #name { items: base_to_value(self) | base_to_value(&rhs) }
                 }

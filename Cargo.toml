@@ -16,7 +16,7 @@ license = "MIT"
 
 
 [dependencies]
-enum-bitset-derive = { path = "enum-bitset-derive", version = "0.1.0" }
+enum-bitset-derive = { path = "enum-bitset-derive", version = "0.1.1" }
 serde = { version = "^1", default-features = false, optional = true }
 
 
