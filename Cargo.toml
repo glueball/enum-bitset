@@ -12,6 +12,7 @@ edition = "2024"
 homepage = "https://github.com/glueball/enum-bitset"
 repository = "https://github.com/glueball/enum-bitset"
 documentation = "https://docs.rs/enum_bitset"
+license = "MIT"
 
 
 [dependencies]
