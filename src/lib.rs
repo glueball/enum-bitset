@@ -1,4 +1,7 @@
-//! Generate efficient bitsets out of your enum types.
+//! # Generate efficient bitsets out of your enum types.
+//! 
+//! ![Crates.io Version](https://img.shields.io/crates/v/enum-bitset)
+//! ![docs.rs](https://img.shields.io/docsrs/enum-bitset)
 //!
 //! The generated bitset type is much like the standard [HashSet] or [BTreeSet] types in that they contain a list of (non-repeating) values of the base enum. But being implemented as a bitset, the memory usage is typically much lower than the standard types, and all set operations (other than iteration) are constant time.
 //!
