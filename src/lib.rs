@@ -1,5 +1,5 @@
 //! # Generate efficient bitsets out of your enum types.
-//! 
+//!
 //! ![Crates.io Version](https://img.shields.io/crates/v/enum-bitset)
 //! ![docs.rs](https://img.shields.io/docsrs/enum-bitset)
 //!

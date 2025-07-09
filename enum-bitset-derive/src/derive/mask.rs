@@ -6,7 +6,7 @@ impl EnumBitsetConfig {
     // Static for easier testing
     pub(crate) fn mask(len: usize) -> LitInt {
         let ones = "1".repeat(len);
-        let bin = format!("0b{}", ones);
+        let bin = format!("0b{ones}");
         LitInt::new(&bin, proc_macro2::Span::call_site())
     }
 }

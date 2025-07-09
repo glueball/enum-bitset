@@ -85,7 +85,7 @@ impl EnumBitsetConfig {
     fn impl_new(&self) -> TokenStream2 {
         let name = &self.set_type;
 
-        let doc = format!("Creates a new empty [`{}`].", name);
+        let doc = format!("Creates a new empty [`{name}`].");
 
         quote!(
             #[doc = #doc]
