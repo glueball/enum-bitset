@@ -35,6 +35,7 @@ impl EnumBitsetConfig {
             self.impl_insert_const(),
             self.impl_remove_const(),
             self.impl_iter_inherent(),
+            self.impl_to_repr(),
             self.impl_from_repr(),
             self.impl_is_valid_repr(),
             self.impl_from_repr_unchecked(),
@@ -491,6 +492,23 @@ impl EnumBitsetConfig {
             #[inline]
             pub const fn iter(&self) -> #iter {
                 #iter { items: self.items }
+            }
+        )
+    }
+
+
+    fn impl_to_repr(&self) -> TokenStream2 {
+        let inner_ty = &self.inner_type;
+        let base_ty = &self.base_type;
+        let doc = format!(
+            r#"Returns the integer representation of the set as a bitset. The N-th variant of 
+               [`{base_ty}`] corresponds to the N-th least significative bit of the integer."#
+        );
+
+        quote!(
+            #[doc = #doc]
+            pub const fn to_repr(&self) -> #inner_ty {
+                self.items
             }
         )
     }
