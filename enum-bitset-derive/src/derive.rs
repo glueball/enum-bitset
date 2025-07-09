@@ -66,7 +66,7 @@ pub fn derive_enum_bitset(input: DeriveInput) -> syn::Result<TokenStream2> {
             };
 
             #doc
-            #[derive(Clone, Copy, Eq, PartialEq)]
+            #[derive(Clone, Copy, Eq, PartialEq, Hash, Ord, PartialOrd)]
             #[repr(transparent)]
             #inner_vis struct #name {
                 // Invariant: only the N-th last bits may be 1 (where N is the number of variants)
