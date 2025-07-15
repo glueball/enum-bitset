@@ -86,3 +86,16 @@ fn from_from_repr_unchecked() {
     check!(set.len() == 1);
     check!(!set.is_empty());
 }
+
+#[test]
+fn to_repr()
+{
+    check!(CodeCommentSet::empty().to_repr() == 0);
+    check!(CodeCommentSet::from([CodeComment::TodoSinceFirstCommit]).to_repr() == 1);
+    check!(CodeCommentSet::from([CodeComment::BlackMagic]).to_repr() == 2);
+    check!(CodeCommentSet::from([CodeComment::TodoSinceFirstCommit, CodeComment::BlackMagic]).to_repr() == 3);
+    check!(CodeCommentSet::from([CodeComment::LateNightRambling]).to_repr() == 4);
+    check!(CodeCommentSet::from([CodeComment::TodoSinceFirstCommit, CodeComment::LateNightRambling]).to_repr() == 5);
+    check!(CodeCommentSet::from([CodeComment::LateNightRambling, CodeComment::BlackMagic]).to_repr() == 6);
+    check!(CodeCommentSet::from([CodeComment::TodoSinceFirstCommit, CodeComment::LateNightRambling, CodeComment::BlackMagic]).to_repr() == 7);
+}
