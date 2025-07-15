@@ -1,8 +1,12 @@
 //! Example to demonstrate the `EnumBitset` derive macro.
 //!
+//! NOTE: This example is *not* available to crates depending on `enum_bitset`.
+//!
 use enum_bitset_derive::EnumBitset;
 
 /// Example enum to demonstrate the `EnumBitset` derive macro.
+///
+/// NOTE: This example is *not* available to crates depending on `enum_bitset`.
 #[derive(EnumBitset, Clone, Copy, PartialEq)]
 #[bitset(crate = crate)]
 pub enum ProgrammerState {

@@ -15,6 +15,7 @@ mod iter;
 mod mask;
 mod ops;
 mod serde;
+mod base_impl;
 
 pub fn derive_enum_bitset(input: DeriveInput) -> syn::Result<TokenStream2> {
     let config: EnumBitsetConfig = input.try_into()?;
@@ -36,6 +37,7 @@ pub fn derive_enum_bitset(input: DeriveInput) -> syn::Result<TokenStream2> {
     let impl_serde = config.impl_serde();
     let impl_ops = config.impl_ops();
     let doc = config.set_docs();
+    let base_impl = config.base_impl();
 
     Ok(quote! {
         #[doc(inline)]
@@ -69,7 +71,7 @@ pub fn derive_enum_bitset(input: DeriveInput) -> syn::Result<TokenStream2> {
             #[derive(Clone, Copy, Eq, PartialEq, Hash, Ord, PartialOrd)]
             #[repr(transparent)]
             #inner_vis struct #name {
-                // Invariant: only the N-th last bits may be 1 (where N is the number of variants)
+                /// Invariant: only the N-th last bits may be 1 (where N is the number of variants)
                 items: #inner_ty,
             }
 
@@ -79,6 +81,7 @@ pub fn derive_enum_bitset(input: DeriveInput) -> syn::Result<TokenStream2> {
             #impl_iter
             #impl_serde
             #impl_ops
+            #base_impl
 
             #[inline]
             const fn base_to_value(value: &#base_ty) -> #inner_ty {

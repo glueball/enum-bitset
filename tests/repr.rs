@@ -99,3 +99,20 @@ fn to_repr()
     check!(CodeCommentSet::from([CodeComment::LateNightRambling, CodeComment::BlackMagic]).to_repr() == 6);
     check!(CodeCommentSet::from([CodeComment::TodoSinceFirstCommit, CodeComment::LateNightRambling, CodeComment::BlackMagic]).to_repr() == 7);
 }
+
+
+#[test]
+fn as_bitset() {
+    check!(
+        CodeComment::TodoSinceFirstCommit.as_bitset()
+            == CodeCommentSet::from_array([CodeComment::TodoSinceFirstCommit])
+    );
+    check!(
+        CodeComment::BlackMagic.as_bitset()
+            == CodeCommentSet::from_array([CodeComment::BlackMagic])
+    );
+    check!(
+        CodeComment::LateNightRambling.as_bitset()
+            == CodeCommentSet::from_array([CodeComment::LateNightRambling])
+    );
+}
