@@ -1,6 +1,6 @@
 [package]
 name = "enum-bitset-derive"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["glueball <glueball@gmail.com>"]
 description = "Proc macros for the enum-bitset macro"
 keywords = ["bitset", "bit-set", "procmacro"]

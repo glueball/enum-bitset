@@ -4,7 +4,7 @@ members = ["enum-bitset-derive"]
 
 [package]
 name = "enum-bitset"
-version = "0.1.0"
+version = "0.1.2"
 authors = ["glueball <glueball@gmail.com>"]
 description = "Generate efficient bitsets out of your enum types"
 keywords = ["bitset", "bit-set", "procmacro"]

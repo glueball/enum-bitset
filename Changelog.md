@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
+### [v0.1.2] enum-bitset-derive - 2025-07-15
 - The Set types derive `Hash`, `Ord` and `PartialOrd`
 - `to_repr` method to get the internal representation value.
 - Implement `as_bitset` to the base enum. Allows creating a set from a single element easier in `const` context (since `.into()` is not available there).
